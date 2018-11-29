@@ -108,17 +108,25 @@ cout<<"Desea adquirir otro producto?"<<endl;
 	cout<<"Ingrese la cantidad con la cual va a pagar"<<endl<<endl;
 	cin>>dinero;
 	devuelta=dinero-total2;
+	if (devuelta<0)
+	{
+		devuelta=devuelta*-1;
+		cout<<"Debe : "<<devuelta<<endl;
+	}
 
-	
+	else
+	{
 	cout<<"Su devuelta es: "<<devuelta<<endl;
 	cout<<"El dinero en caja es: "<<caja<<endl;
 	caja=((caja+dinero)-devuelta);
-	cout<<"El dinero en caja es:"<<caja<<endl;		
+	cout<<"El dinero en caja es:"<<caja<<endl;
+	}
+		
 	}
 
 void inventario()
 {
-	int c;
+	int c,ax;
 	cout<<"INGRESE LA CLAVE"<<endl;
 	cin>>c;
 	if(c==1234)//contraseña
@@ -133,7 +141,17 @@ void inventario()
 	{
 			if (pro[i].c>0)
 	{
+		int s=pro[i].precio*0.8;
+		
 		cout<<"Se debe adquirir: "<<pro[i].nombre<<endl<<endl;
+		cout<<"Precio de adquisicion por unidad: "<<s<<endl<<endl;
+		cout<<"Cuantas unidades desea adquirir?"<<endl<<endl;
+		cin>>ax;
+		pro[i].cpro=ax;
+		int s2= (s*ax);
+		cout<<"Usted adquirio "<<ax<<" unidades de "<<pro[i].nombre<<" Por : $"<<s2<<endl<<endl;
+		//cout<<"Su saldo actual en caja es: "<<endl;
+		
 
 
 }
